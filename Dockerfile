@@ -16,10 +16,6 @@ RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.
 RUN apt-get update
 RUN apt-get -y install rabbitmq-server
 
-RUN mkdir /certs
-ADD cacert.pem /certs/cacert.pem
-ADD cert.pem /certs/cert.pem
-ADD key.pem /certs/key.pem
 ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
 RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
